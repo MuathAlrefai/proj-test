@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Halls</title>
+    {% load static %}
+    <link rel="shortcut icon" href="{% static 'images/favicon.jpg' %}" type="image/x-icon">
+</head>
+<body>
+    <h1>Add a Hall</h1>
+    <form action="/add_hall" method="POST">
+        {% csrf_token %}
+        <label for="hall_name">Name</label>
+        <input type="text" name="hall_name"><br>
+        <label for="hall_phone">Phone Number</label>
+        <input type="text" name="hall_phone"><br>
+        <label for="hall_phone">Mobile Number</label>
+        <input type="text" name="hall_mobile"><br>
+        <label for="hall_img1">Image 1 (cover)</label>
+        <input type="url" name="hall_img1"><br>
+        <label for="hall_img2">Image 2</label>
+        <input type="url" name="hall_img2"><br>
+        <label for="hall_img3">Image 3</label>
+        <input type="url" name="hall_img3"><br>
+        <label for="hall_phone">Price</label>
+        <input type="number" name="hall_price"><br>
+        <label for="hall_desc">Description</label><br>
+        <textarea name="hall_desc" cols="50" rows="5" placeholder="Enter Hall Description"></textarea><br>
+        <label for="hall_capacity">Capacity</label>
+        <input type="text" name="hall_capacity" placeholder="Enter Capacity *e.g. 50"><br>
+        <label for="hall_city">Choose a City</label>
+        <select name="hall_city">
+            {% for city in cities %}
+            <option value="{{city.id}}">{{city.name}}</option>
+            {% endfor %}
+        </select><br>
+        <button type="submit">Add Hall</button>
+    </form>
+    <div class="hall_container">
+        {% for hall in halls %}
+        <div class="hall">
+
+            <h2>Hall's name: {{hall.name}}</h2>
+            <h2>Hall's Phone number: {{hall.phone}}</h2>
+            <h2>Hall's Mobile number: {{hall.mobile}}</h2>
+            <h2>Hall's Price: {{hall.price}}</h2>
+            <h2>Hall's Description: {{hall.description}}</h2>
+            <h2>Hall's Capacity: {{hall.capacity}} People</h2>
+            <h2>Hall's City: {{hall.city.name}}</h2>
+            <img src="{{hall.img1}}" width="400px"><br>
+            <img src="{{hall.img2}}" width="400px"><br>
+            <img src="{{hall.img3}}" width="400px">
+            <form action="/delete_hall" method="POST">
+                {% csrf_token %}
+                <input type="hidden" name="hall_id" value="{{hall.id}}">
+                <input type="submit" value="delete hall">
+            </form>
+            <hr>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>

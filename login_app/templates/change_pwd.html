@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - Log In / Sign Up - pure css - #12</title>
+  {% load static %}
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css'>
+<link rel='stylesheet' href='https://unicons.iconscout.com/release/v2.1.9/css/unicons.css'><link rel="stylesheet" href="{% static 'style.css' %}">
+<link rel="shortcut icon" href="{% static 'images/favicon.png' %}" type="image/x-icon">
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<a href="/cities_all" class="logo" target="_blank">
+	<img src="{% static 'images/favicon.png' %}" alt="Hallsy" style="width: 45%; height: 40%; margin-right: 0px;">
+	</a>
+	<div class="section">
+		<div class="container">
+			<div class="row full-height justify-content-center">
+				<div class="col-12 text-center align-self-center py-5">
+					<div class="section pb-5 pt-5 pt-sm-2 text-center">
+						<div class="card-3d-wrap mx-auto">
+							<div class="card-3d-wrapper">
+								<div class="card-front">
+									<div class="center-wrap">
+										<div class="messages">
+											{% if messages %}
+											<ul class="messages">
+											{% for message in messages %}
+												<li {% if message.tags %} class="{{ message.tags }}" {% endif %}>
+											{{message}}
+												</li>
+											{% endfor %}
+											</ul>
+											{% endif %}
+										</div>
+										<div class="section text-center">
+											<h4 class="mb-4 pb-3">Account Reset</h4>
+											<form action="/update_pwd" method="POST">
+												{% csrf_token %}
+												<div class="form-group">
+													<input type="text" name="username" class="form-style" placeholder="Your Username" id="logname" autocomplete="off" required>
+													<i class="input-icon uil uil-user"></i>
+												</div>	
+                                                <div class="form-group mt-2">
+													<input type="password" name="password" class="form-style" placeholder="Your New Password" id="logpass" autocomplete="off" required>
+													<i class="input-icon uil uil-lock-alt"></i>
+												</div>
+												<div class="form-group mt-2">
+													<input type="password" name="confirm_password" class="form-style" placeholder="Confirm Password" id="logpass" autocomplete="off" required>
+													<i class="input-icon uil uil-lock-alt"></i>
+												</div>
+												<button type="submit" class="btn mt-4">Update Password</button>
+											</form>
+				      					</div>
+			      					</div>
+			      				</div>
+			      			</div>
+			      		</div>
+			      	</div>
+		      	</div>
+	      	</div>
+	    </div>
+	</div>
+<!-- partial -->
+  <script  src="{% static 'script.js' %}"></script>
+
+</body>
+</html>

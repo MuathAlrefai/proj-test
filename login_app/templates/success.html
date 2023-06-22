@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Success</title>
+    {% load static %}
+    <style>
+        body {
+            background-color: #1f2029;
+            color: #342d15;
+            font-family: sans-serif;
+            font-size: x-large;
+        }
+
+        a {
+            text-decoration: none;
+            color: #cea82b;
+
+        }
+        .cont {
+            padding: 50px;
+            margin: 200px 540px;
+            background-color: rgb(230, 230, 230);
+            text-align: center;
+            border-radius: 10px;
+        }
+    </style>
+    <link rel="shortcut icon" href="{% static 'images/favicon.png' %}" type="image/x-icon">
+</head>
+
+<body>
+    <div class="cont">
+        <h1>Successfully Registered</h1>
+        <a href="/sign">Go back to login screen</a>
+    </div>
+</body>
+
+</html>

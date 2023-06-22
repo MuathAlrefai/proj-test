@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{hall.name}} Info</title>
+    {% load static %}
+    <link rel="shortcut icon" href="{% static 'images/favicon.jpg' %}" type="image/x-icon">
+</head>
+<body>
+    <h1>This is {{hall.name}}'s Info Page</h1><br><hr>
+    <h2>Hall's Phone number: {{hall.phone}}</h2>
+    <h2>Hall's Description: {{hall.description}}</h2>
+    <h2>Hall's Capacity: {{hall.capacity}} People</h2>
+    <h2>Hall's Rating: {{hall.rating}}</h2>
+    <h2>Hall's City: {{hall.city.name}}</h2><br><hr>
+    <form action="/book" method="POST">
+        {% csrf_token %}
+        <input type="hidden" name="hall_id" value="{{hall.id}}">
+        <button type="submit">* Book this Hall</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- Boxicons CSS -->
+  {% load static %}
+  <title>{{hall.name}}</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous" />
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+    integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous" />
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+  <link rel="shortcut icon" href="{% static 'images/favicon.png' %}" type="image/x-icon" />
+  <link rel="stylesheet" href="{% static 'cities/style.css' %}" />
+</head>
+
+<body>
+
+  <nav>
+    <div class="nav-bar">
+      <i class="bx bx-menu sidebarOpen"></i>
+      <span class="logo navLogo"><a href="">Hallsy</a></span>
+
+      <div class="menu">
+        <div class="logo-toggle">
+          <span class="logo"><a href="">Hallsy</a></span>
+          <i class="bx bx-x siderbarClose"></i>
+        </div>
+        <ul class="nav-links">
+          <li><a href="/sign">Login</a></li>
+          <li><a href="/cities_all">Home</a></li>
+          <li><a href="/halls_all">Halls</a></li>
+          <li><a href="/help_all">Help</a></li>
+          <li><a href="/about_all">About</a></li>
+        </ul>
+      </div>
+      <div class="darkLight-searchBox">
+        <div class="drak-light">
+          <i class="bx bx-moon moon"></i>
+          <i class="bx bx-sun sun"></i>
+        </div>
+        <div class="searchBox">
+          <div class="searchToggle">
+            <i class="bx bx-x cancel"></i>
+            <i class="bx bx-search search"></i>
+          </div>
+
+          <div class="search-field">
+            <input type="text" placeholder="Search..." />
+            <i class="bx bx-search"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container_hall_info ">
+    <div class="card">
+      <div class="card-body">
+        <!-- <h3 class="card-title">Rounded Chair</h3> -->
+        <!-- <h6 class="card-subtitle">globe type chair for rest</h6> -->
+        <div class="row">
+          <div class="col-lg-5 col-md-5 col-sm-6">
+
+            <div id="demo" class="carousel slide" data-ride="carousel">
+
+              <!-- Indicators -->
+              <ul class="carousel-indicators">
+                <li data-target="#demo" data-slide-to="0" class="active"></li>
+                <li data-target="#demo" data-slide-to="1"></li>
+                <li data-target="#demo" data-slide-to="2"></li>
+              </ul>
+
+              <!-- The slideshow -->
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <img class="info_img" src="{{hall.img1}}">
+                </div>
+                <div class="carousel-item">
+                  <img class="info_img" src="{{hall.img2}}">
+                </div>
+                <div class="carousel-item">
+                  <img class="info_img" src="{{hall.img3}}">
+                </div>
+              </div>
+              <br><br>
+              <h2>{{hall.name}}</h2>
+
+
+              <!-- Left and right controls -->
+              <a class="carousel-control-prev" href="#demo" data-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+              </a>
+              <a class="carousel-control-next" href="#demo" data-slide="next">
+                <span class="carousel-control-next-icon"></span>
+              </a>
+
+            </div>
+          </div>
+          <div class="col-lg-7 col-md-7 col-sm-6"><br>
+
+            <h4 class="box-title mt-5">Hall description</h4>
+            <p>{{hall.description}}</p>
+            <h2 class="mt-5">
+              ${{hall.price}}
+            </h2>
+            </button>
+            <form action="/sign" method="GET">
+              {% csrf_token %}
+              <input type="hidden" name="hall_id" value="{{hall.id}}" />
+              <input type="date" name="date">
+              <input type="time" name="time_from">
+              <input type="time" name="time_to"><br><br>
+              <button type="submit" class="btn btn-primary btn-rounded" style="background-color: #ffeba7; color: black; border: none;">Book Now</button>
+            </form>
+
+            <h3 class="box-title mt-5">Guarantees</h3>
+            <ul class="list-unstyled">
+              <li><i class="fa fa-check text-success"></i> Flexible space & Quality amenities</li>
+              <li><i class="fa fa-check text-success"></i> Transparent pricing</li>
+              <li><i class="fa fa-check text-success"></i> Professional staff</li>
+            </ul>
+          </div>
+          <div class="col-lg-12 col-md-12 col-sm-12">
+            <div class="table-responsive">
+              <table class="table table-striped table-product">
+                <tbody>
+                  <tr>
+                    <td width="390">Name</td>
+                    <td>{{hall.name}}</td>
+                  </tr>
+                  <tr>
+                    <td>Phone Number</td>
+                    <td>{{hall.phone}}</td>
+                  </tr>
+                  <tr>
+                    <td>Mobile Number</td>
+                    <td>{{hall.mobile}}</td>
+                  </tr>
+                  <tr>
+                    <td>Description</td>
+                    <td>{{hall.description}}</td>
+                  </tr>
+                  <tr>
+                    <td>Price</td>
+                    <td>{{hall.price}}</td>
+                  </tr>
+                  <tr>
+                    <td>Location</td>
+                    <td>{{hall.city.name}}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-basic">
+    <footer>
+      <div class="social">
+        <a href="#"><i class="icon ion-social-instagram"></i></a>
+        <a href="#"><i class="icon ion-social-snapchat"></i></a>
+        <a href="#"><i class="icon ion-social-twitter"></i></a>
+        <a href="#"><i class="icon ion-social-facebook"></i></a>
+      </div>
+      <ul class="list-inline">
+        <li class="list-inline-item"><a href="/cities_all">Home</a></li>
+        <li class="list-inline-item"><a href="/about_all">About</a></li>
+        <li class="list-inline-item"><a href="/help_all">Help</a></li>
+        <li class="list-inline-item"><a href="#">Contact Us</a></li>
+      </ul>
+      <br>
+      <p class="copyright">Hallsy © 2023</p>
+    </footer>
+
+
+    <script src="{% static 'cities/script.js' %}"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+      integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+      crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"
+      integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS"
+      crossorigin="anonymous"></script>
+</body>
+
+</html>

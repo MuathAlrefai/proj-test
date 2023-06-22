@@ -1,0 +1,107 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <!-- Boxicons CSS -->
+    <title>Hallsy</title>
+    {% load static %}
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous"/>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="shortcut icon" href="{% static 'images/favicon.png' %}" type="image/x-icon">
+    <link rel="stylesheet" href="{% static 'cities/style.css' %}">
+</head>
+ <body>
+  <nav>
+  <div class="nav-bar">
+    <i class='bx bx-menu sidebarOpen' ></i>
+    <span class="logo navLogo"><a href="">Hallsy</a></span>
+    
+    <div class="menu">
+      <div class="logo-toggle">
+        <span class="logo"><a href="">Hallsy</a></span>
+        <i class='bx bx-x siderbarClose'></i>
+      </div>
+        <ul class="nav-links">
+          <li><a href="/profile">{{user.username}}</a></li>
+          <li><a href="/cities">Home</a></li>
+          <li><a href="/halls">Halls</a></li>
+          <li><a href="/help">Help</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/logout_user">Logout</a></li>
+        </ul>
+    </div>
+    <div class="darkLight-searchBox">
+      <div class="drak-light">
+        <i class='bx bx-moon moon' ></i>
+        <i class='bx bx-sun sun' ></i>
+      </div>
+        <div class="searchBox">
+            <div class="searchToggle">
+              <i class='bx bx-x cancel'></i>
+              <i class='bx bx-search search' ></i>
+            </div>
+          
+            <div class="search-field">
+                <input type="text" placeholder="Search...">
+                <i class='bx bx-search ' ></i>
+            </div>
+          </div>
+      </div>
+    
+    </div>
+  </nav>
+  <div class="section">
+    <div class="container_about">
+        <div class="content-section">
+            <div class="title">
+                <h1>About Us</h1><hr>
+            </div>
+            <div class="content">
+              <h3>Welcome to our premier event venue rental service!</h3>
+              <p>We're an event venue rental service specializing in weddings, parties, and graduations. Our flexible space can accommodate events of all sizes. We're dedicated to providing exceptional customer service and working closely with you to make your vision a reality. <br> Thank you for choosing us as your go-to destination for unforgettable events!</p>
+                <div class="button">
+                    <br><a href=""> Read More</a>
+                </div>
+            </div>
+            <div class="social">
+                <a href=""><i class="fab fa-facebook-f"></i></a>
+                <a href=""><i class="fab fa-twitter"></i></a>
+                <a href=""><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+        <div class="image-section">
+            <img src="{% static 'cities/about_us.jpg' %}" alt="">
+  
+        </div>
+    </div>
+  </div>
+  
+  <div class="footer-basic">
+    <footer>
+        <div class="social">
+            <a href="#"><i class="icon ion-social-instagram"></i></a>
+            <a href="#"><i class="icon ion-social-snapchat"></i></a>
+            <a href="#"><i class="icon ion-social-twitter"></i></a>
+            <a href="#"><i class="icon ion-social-facebook"></i></a>
+        </div>
+        <ul class="list-inline">
+            <li class="list-inline-item"><a href="/cities_all">Home</a></li>
+            <li class="list-inline-item"><a href="/about_all">About</a></li>
+            <li class="list-inline-item"><a href="/help_all">Help</a></li>
+            <li class="list-inline-item"><a href="#">Contact Us</a></li>
+        </ul>
+        <br>
+        <p class="copyright">Hallsy © 2023</p>
+    </footer>
+</div>
+
+
+        <script src="{% static 'cities/script.js' %}"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js" integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS" crossorigin="anonymous"></script>
+    </body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit My Profile</title>
+    {% load static %}
+    <link rel="shortcut icon" href="{% static 'images/favicon.jpg' %}" type="image/x-icon">
+</head>
+<body>
+    <h1>Edit your profile page: </h1>
+    <form action="/update_profile_admin" method="POST">
+        {% csrf_token %}
+        <label for="username">Username</label>
+        <input type="text" name="username" value="*{{admin.username}}" readonly><br>
+        <label for="first_name">First Name</label>
+        <input type="text" name="first_name" value="{{admin.first_name}}"><br>
+        <label for="first_name">Last Name</label>
+        <input type="text" name="last_name" value="{{admin.last_name}}"><br>
+        <label for="first_name">Phone Number</label>
+        <input type="text" name="phone" value="{{admin.phone}}"><br>
+        <label for="first_name">Email</label>
+        <input type="email" name="email" value="{{admin.email}}"><br>
+        <button type="submit">Save</button>
+        <p>* non-editable fields</p>
+    </form>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{city.name}} Halls</title>
+    {% load static %}
+    <link rel="shortcut icon" href="{% static 'images/favicon.jpg' %}" type="image/x-icon">
+</head>
+<body>
+    <h1>This is {{city.name}}'s Halls Page</h1><br><br>
+
+    <div class="hall">
+
+        <!-- ! to get all halls in THIS city -->
+        {% for hall in city.halls.all %}
+        <h2>Hall's name: <a href="/halls/{{hall.city.name}}/{{hall.name}}">{{hall.name}}</a></h2>
+        <h2>Hall's Phone number: {{hall.phone}}</h2>
+        <h2>Hall's Description: {{hall.description}}</h2>
+        <h2>Hall's Capacity: {{hall.capacity}} People</h2>
+        <h2>Hall's Rating: {{hall.rating}}</h2>
+        <h2>Hall's City: {{hall.city.name}}</h2>
+        <hr>
+        {% endfor %}
+    </div>
+
+    <br><br><br>
+    <!-- ! to get all halls in all cities -->
+    <!-- {% for city in cities %}
+        {% for hall in city.halls.all %}
+        <h1>{{hall.name}}</h1>
+        {% endfor %}
+    {% endfor %} -->
+</body>
+</html>
